@@ -1,6 +1,6 @@
 # JDK源码阅读和学习
 
-- 参考源码：[jdk-8u181-linux-x64.tar.gz](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- 参考源码：[jdk-8u181-linux-x64.tar.gz](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 内的 src.zip
 - 阅读工具：IntelliJ IDEA 2017.2
 
 # 阅读计划
