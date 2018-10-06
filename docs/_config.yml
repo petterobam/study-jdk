@@ -95,6 +95,7 @@ theme: next
 deploy:
   type: git
   repo: https://github.com/petterobam/study-jdk1.8.0_181.git
+  repository: https://github.com/petterobam/study-jdk1.8.0_181.git
   branch: master
 
 search:
