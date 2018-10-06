@@ -93,10 +93,11 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: https://github.com/petterobam/study-jdk1.8.0_181.git
-  repository: https://github.com/petterobam/study-jdk1.8.0_181.git
-  branch: master
+  type:
+#  type: git
+#  repo: https://github.com/petterobam/study-jdk1.8.0_181.git
+#  repository: https://github.com/petterobam/study-jdk1.8.0_181.git
+#  branch: master
 
 search:
   path: search.xml
