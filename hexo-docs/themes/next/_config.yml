@@ -409,9 +409,9 @@ gitment:
   cleanly: false # Hide 'Powered by ...' on footer, and more
   language: # Force language, or auto switch by theme
   github_user: petterobam # MUST HAVE, Your Github ID
-  github_repo: study-jdk1.8.0_181 # MUST HAVE, The repo you use to store Gitment comments
-  client_id: 16a13a5d118f18d0cded # MUST HAVE, Github client id for the Gitment
-  client_secret: 02af85d100dbb6f823bf964d2ddc95d3febfa0cc # EITHER this or proxy_gateway, Github access secret token for the Gitment
+  github_repo: study-jdk # MUST HAVE, The repo you use to store Gitment comments
+  client_id: e2534de37cd97653f438 # MUST HAVE, Github client id for the Gitment
+  client_secret: 99b76ed0a77ff5ac70683a1a6e0f2b62e099e811 # EITHER this or proxy_gateway, Github access secret token for the Gitment
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
   redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
 
