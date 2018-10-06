@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+    <meta name="description" content="一起努力吧 >__<" />
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/blog/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/blog/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/blog/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/blog/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/blog/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/blog/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/blog/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="包结构," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="123456789101112├─concurrent(多线程）│  ├─atomic（原子操作）│  └─locks（锁）├─function（Function接口）├─jar（jar工具）├─logging（日志组件）├─prefs（首选项工具）├─regex（正则）├─spi（服务提供发现机制）├─stream（Lambda流编程）├─zip（压缩工具）└─*.java（集合工具）">
+<meta name="keywords" content="包结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【java.util.*】 - README">
+<meta property="og:url" content="http://www.studyjdk8.cn/blog/java.util/README/index.html">
+<meta property="og:site_name" content="一起读 JDK 源码">
+<meta property="og:description" content="123456789101112├─concurrent(多线程）│  ├─atomic（原子操作）│  └─locks（锁）├─function（Function接口）├─jar（jar工具）├─logging（日志组件）├─prefs（首选项工具）├─regex（正则）├─spi（服务提供发现机制）├─stream（Lambda流编程）├─zip（压缩工具）└─*.java（集合工具）">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-06T09:33:41.179Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【java.util.*】 - README">
+<meta name="twitter:description" content="123456789101112├─concurrent(多线程）│  ├─atomic（原子操作）│  └─locks（锁）├─function（Function接口）├─jar（jar工具）├─logging（日志组件）├─prefs（首选项工具）├─regex（正则）├─spi（服务提供发现机制）├─stream（Lambda流编程）├─zip（压缩工具）└─*.java（集合工具）">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/blog/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.studyjdk8.cn/blog/java.util/README/"/>
+
+
+
+
+
+  <title>【java.util.*】 - README | 一起读 JDK 源码</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?938168a9a3cda950c39306c563b8cbdb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/blog/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一起读 JDK 源码</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">JDK1.8.0_181源码研读</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/blog/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/blog/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/blog/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-baidusitemap">
+          <a href="/blog/baidusitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            百度站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/blog/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.studyjdk8.cn/blog/blog/java.util/README/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="petterobam">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/blog/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一起读 JDK 源码">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【java.util.*】 - README</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-06T14:56:44+08:00">
+                2018-10-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/blog/java.util/README/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/blog/java.util/README/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">├─concurrent(多线程）</span><br><span class="line">│  ├─atomic（原子操作）</span><br><span class="line">│  └─locks（锁）</span><br><span class="line">├─function（Function接口）</span><br><span class="line">├─jar（jar工具）</span><br><span class="line">├─logging（日志组件）</span><br><span class="line">├─prefs（首选项工具）</span><br><span class="line">├─regex（正则）</span><br><span class="line">├─spi（服务提供发现机制）</span><br><span class="line">├─stream（Lambda流编程）</span><br><span class="line">├─zip（压缩工具）</span><br><span class="line">└─*.java（集合工具）</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="包简介"><a href="#包简介" class="headerlink" title="包简介"></a>包简介</h2><p>java.util.* 是 java 的常用工具类，包含 collection 框架、遗留的 collection 类、事件模型、日期和时间设施、国际化和各种实用工具类（字符串标记生成器、随机数生成器和位数组）。</p>
+<h2 id="详细目录"><a href="#详细目录" class="headerlink" title="详细目录"></a>详细目录</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br></pre></td><td class="code"><pre><span class="line">java.util</span><br><span class="line">    ├─AbstractCollection.java</span><br><span class="line">    ├─AbstractList.java</span><br><span class="line">    ├─AbstractMap.java</span><br><span class="line">    ├─AbstractQueue.java</span><br><span class="line">    ├─AbstractSequentialList.java</span><br><span class="line">    ├─AbstractSet.java</span><br><span class="line">    ├─ArrayDeque.java</span><br><span class="line">    ├─ArrayList.java</span><br><span class="line">    ├─ArrayPrefixHelpers.java</span><br><span class="line">    ├─Arrays.java</span><br><span class="line">    ├─ArraysParallelSortHelpers.java</span><br><span class="line">    ├─Base64.java</span><br><span class="line">    ├─BitSet.java</span><br><span class="line">    ├─Calendar.java</span><br><span class="line">    ├─Collection.java</span><br><span class="line">    ├─Collections.java</span><br><span class="line">    ├─ComparableTimSort.java</span><br><span class="line">    ├─Comparator.java</span><br><span class="line">    ├─Comparators.java</span><br><span class="line">    ├─ConcurrentModificationException.java</span><br><span class="line">    ├─Currency.java</span><br><span class="line">    ├─<span class="built_in">Date</span>.java</span><br><span class="line">    ├─Deque.java</span><br><span class="line">    ├─Dictionary.java</span><br><span class="line">    ├─DoubleSummaryStatistics.java</span><br><span class="line">    ├─DualPivotQuicksort.java</span><br><span class="line">    ├─DuplicateFormatFlagsException.java</span><br><span class="line">    ├─EmptyStackException.java</span><br><span class="line">    ├─Enumeration.java</span><br><span class="line">    ├─EnumMap.java</span><br><span class="line">    ├─EnumSet.java</span><br><span class="line">    ├─EventListener.java</span><br><span class="line">    ├─EventListenerProxy.java</span><br><span class="line">    ├─EventObject.java</span><br><span class="line">    ├─FormatFlagsConversionMismatchException.java</span><br><span class="line">    ├─Formattable.java</span><br><span class="line">    ├─FormattableFlags.java</span><br><span class="line">    ├─Formatter.java</span><br><span class="line">    ├─FormatterClosedException.java</span><br><span class="line">    ├─GregorianCalendar.java</span><br><span class="line">    ├─HashMap.java</span><br><span class="line">    ├─HashSet.java</span><br><span class="line">    ├─Hashtable.java</span><br><span class="line">    ├─IdentityHashMap.java</span><br><span class="line">    ├─IllegalFormatCodePointException.java</span><br><span class="line">    ├─IllegalFormatConversionException.java</span><br><span class="line">    ├─IllegalFormatException.java</span><br><span class="line">    ├─IllegalFormatFlagsException.java</span><br><span class="line">    ├─IllegalFormatPrecisionException.java</span><br><span class="line">    ├─IllegalFormatWidthException.java</span><br><span class="line">    ├─IllformedLocaleException.java</span><br><span class="line">    ├─InputMismatchException.java</span><br><span class="line">    ├─IntSummaryStatistics.java</span><br><span class="line">    ├─InvalidPropertiesFormatException.java</span><br><span class="line">    ├─Iterator.java</span><br><span class="line">    ├─JapaneseImperialCalendar.java</span><br><span class="line">    ├─JumboEnumSet.java</span><br><span class="line">    ├─LinkedHashMap.java</span><br><span class="line">    ├─LinkedHashSet.java</span><br><span class="line">    ├─LinkedList.java</span><br><span class="line">    ├─List.java</span><br><span class="line">    ├─ListIterator.java</span><br><span class="line">    ├─ListResourceBundle.java</span><br><span class="line">    ├─Locale.java</span><br><span class="line">    ├─LocaleISOData.java</span><br><span class="line">    ├─LongSummaryStatistics.java</span><br><span class="line">    ├─Map.java</span><br><span class="line">    ├─MissingFormatArgumentException.java</span><br><span class="line">    ├─MissingFormatWidthException.java</span><br><span class="line">    ├─MissingResourceException.java</span><br><span class="line">    ├─NavigableMap.java</span><br><span class="line">    ├─NavigableSet.java</span><br><span class="line">    ├─NoSuchElementException.java</span><br><span class="line">    ├─Objects.java</span><br><span class="line">    ├─Observable.java</span><br><span class="line">    ├─Observer.java</span><br><span class="line">    ├─Optional.java</span><br><span class="line">    ├─OptionalDouble.java</span><br><span class="line">    ├─OptionalInt.java</span><br><span class="line">    ├─OptionalLong.java</span><br><span class="line">    ├─PrimitiveIterator.java</span><br><span class="line">    ├─PriorityQueue.java</span><br><span class="line">    ├─Properties.java</span><br><span class="line">    ├─PropertyPermission.java</span><br><span class="line">    ├─PropertyResourceBundle.java</span><br><span class="line">    ├─Queue.java</span><br><span class="line">    ├─Random.java</span><br><span class="line">    ├─RandomAccess.java</span><br><span class="line">    ├─RegularEnumSet.java</span><br><span class="line">    ├─ResourceBundle.java</span><br><span class="line">    ├─Scanner.java</span><br><span class="line">    ├─ServiceConfigurationError.java</span><br><span class="line">    ├─ServiceLoader.java</span><br><span class="line">    ├─<span class="built_in">Set</span>.java</span><br><span class="line">    ├─SimpleTimeZone.java</span><br><span class="line">    ├─SortedMap.java</span><br><span class="line">    ├─SortedSet.java</span><br><span class="line">    ├─Spliterator.java</span><br><span class="line">    ├─Spliterators.java</span><br><span class="line">    ├─SplittableRandom.java</span><br><span class="line">    ├─Stack.java</span><br><span class="line">    ├─StringJoiner.java</span><br><span class="line">    ├─StringTokenizer.java</span><br><span class="line">    ├─Timer.java</span><br><span class="line">    ├─TimerTask.java</span><br><span class="line">    ├─TimeZone.java</span><br><span class="line">    ├─TimSort.java</span><br><span class="line">    ├─TooManyListenersException.java</span><br><span class="line">    ├─TreeMap.java</span><br><span class="line">    ├─TreeSet.java</span><br><span class="line">    ├─Tripwire.java</span><br><span class="line">    ├─UnknownFormatConversionException.java</span><br><span class="line">    ├─UnknownFormatFlagsException.java</span><br><span class="line">    ├─UUID.java</span><br><span class="line">    ├─Vector.java</span><br><span class="line">    ├─WeakHashMap.java</span><br><span class="line">    │</span><br><span class="line">    ├─concurrent</span><br><span class="line">    │   ├─AbstractExecutorService.java</span><br><span class="line">    │   ├─ArrayBlockingQueue.java</span><br><span class="line">    │   ├─BlockingDeque.java</span><br><span class="line">    │   ├─BlockingQueue.java</span><br><span class="line">    │   ├─BrokenBarrierException.java</span><br><span class="line">    │   ├─Callable.java</span><br><span class="line">    │   ├─CancellationException.java</span><br><span class="line">    │   ├─CompletableFuture.java</span><br><span class="line">    │   ├─CompletionException.java</span><br><span class="line">    │   ├─CompletionService.java</span><br><span class="line">    │   ├─CompletionStage.java</span><br><span class="line">    │   ├─ConcurrentHashMap.java</span><br><span class="line">    │   ├─ConcurrentLinkedDeque.java</span><br><span class="line">    │   ├─ConcurrentLinkedQueue.java</span><br><span class="line">    │   ├─ConcurrentMap.java</span><br><span class="line">    │   ├─ConcurrentNavigableMap.java</span><br><span class="line">    │   ├─ConcurrentSkipListMap.java</span><br><span class="line">    │   ├─ConcurrentSkipListSet.java</span><br><span class="line">    │   ├─CopyOnWriteArrayList.java</span><br><span class="line">    │   ├─CopyOnWriteArraySet.java</span><br><span class="line">    │   ├─CountDownLatch.java</span><br><span class="line">    │   ├─CountedCompleter.java</span><br><span class="line">    │   ├─CyclicBarrier.java</span><br><span class="line">    │   ├─Delayed.java</span><br><span class="line">    │   ├─DelayQueue.java</span><br><span class="line">    │   ├─Exchanger.java</span><br><span class="line">    │   ├─ExecutionException.java</span><br><span class="line">    │   ├─Executor.java</span><br><span class="line">    │   ├─ExecutorCompletionService.java</span><br><span class="line">    │   ├─Executors.java</span><br><span class="line">    │   ├─ExecutorService.java</span><br><span class="line">    │   ├─ForkJoinPool.java</span><br><span class="line">    │   ├─ForkJoinTask.java</span><br><span class="line">    │   ├─ForkJoinWorkerThread.java</span><br><span class="line">    │   ├─Future.java</span><br><span class="line">    │   ├─FutureTask.java</span><br><span class="line">    │   ├─LinkedBlockingDeque.java</span><br><span class="line">    │   ├─LinkedBlockingQueue.java</span><br><span class="line">    │   ├─LinkedTransferQueue.java</span><br><span class="line">    │   ├─package-info.java</span><br><span class="line">    │   ├─Phaser.java</span><br><span class="line">    │   ├─PriorityBlockingQueue.java</span><br><span class="line">    │   ├─RecursiveAction.java</span><br><span class="line">    │   ├─RecursiveTask.java</span><br><span class="line">    │   ├─RejectedExecutionException.java</span><br><span class="line">    │   ├─RejectedExecutionHandler.java</span><br><span class="line">    │   ├─RunnableFuture.java</span><br><span class="line">    │   ├─RunnableScheduledFuture.java</span><br><span class="line">    │   ├─ScheduledExecutorService.java</span><br><span class="line">    │   ├─ScheduledFuture.java</span><br><span class="line">    │   ├─ScheduledThreadPoolExecutor.java</span><br><span class="line">    │   ├─Semaphore.java</span><br><span class="line">    │   ├─SynchronousQueue.java</span><br><span class="line">    │   ├─ThreadFactory.java</span><br><span class="line">    │   ├─ThreadLocalRandom.java</span><br><span class="line">    │   ├─ThreadPoolExecutor.java</span><br><span class="line">    │   ├─TimeoutException.java</span><br><span class="line">    │   ├─TimeUnit.java</span><br><span class="line">    │   └─TransferQueue.java</span><br><span class="line">    │</span><br><span class="line">    ├─atomic</span><br><span class="line">    │   ├─AtomicBoolean.java</span><br><span class="line">    │   ├─AtomicInteger.java</span><br><span class="line">    │   ├─AtomicIntegerArray.java</span><br><span class="line">    │   ├─AtomicIntegerFieldUpdater.java</span><br><span class="line">    │   ├─AtomicLong.java</span><br><span class="line">    │   ├─AtomicLongArray.java</span><br><span class="line">    │   ├─AtomicLongFieldUpdater.java</span><br><span class="line">    │   ├─AtomicMarkableReference.java</span><br><span class="line">    │   ├─AtomicReference.java</span><br><span class="line">    │   ├─AtomicReferenceArray.java</span><br><span class="line">    │   ├─AtomicReferenceFieldUpdater.java</span><br><span class="line">    │   ├─AtomicStampedReference.java</span><br><span class="line">    │   ├─DoubleAccumulator.java</span><br><span class="line">    │   ├─DoubleAdder.java</span><br><span class="line">    │   ├─LongAccumulator.java</span><br><span class="line">    │   ├─LongAdder.java</span><br><span class="line">    │   ├─package-info.java</span><br><span class="line">    │   └─Striped64.java</span><br><span class="line">    │</span><br><span class="line">    ├─locks</span><br><span class="line">    │   ├─AbstractOwnableSynchronizer.java</span><br><span class="line">    │   ├─AbstractQueuedLongSynchronizer.java</span><br><span class="line">    │   ├─AbstractQueuedSynchronizer.java</span><br><span class="line">    │   ├─Condition.java</span><br><span class="line">    │   ├─Lock.java</span><br><span class="line">    │   ├─LockSupport.java</span><br><span class="line">    │   ├─package-info.java</span><br><span class="line">    │   ├─ReadWriteLock.java</span><br><span class="line">    │   ├─ReentrantLock.java</span><br><span class="line">    │   ├─ReentrantReadWriteLock.java</span><br><span class="line">    │   └─StampedLock.java</span><br><span class="line">    │</span><br><span class="line">    ├─function</span><br><span class="line">    │   ├─BiConsumer.java</span><br><span class="line">    │   ├─BiFunction.java</span><br><span class="line">    │   ├─BinaryOperator.java</span><br><span class="line">    │   ├─BiPredicate.java</span><br><span class="line">    │   ├─BooleanSupplier.java</span><br><span class="line">    │   ├─Consumer.java</span><br><span class="line">    │   ├─DoubleBinaryOperator.java</span><br><span class="line">    │   ├─DoubleConsumer.java</span><br><span class="line">    │   ├─DoubleFunction.java</span><br><span class="line">    │   ├─DoublePredicate.java</span><br><span class="line">    │   ├─DoubleSupplier.java</span><br><span class="line">    │   ├─DoubleToIntFunction.java</span><br><span class="line">    │   ├─DoubleToLongFunction.java</span><br><span class="line">    │   ├─DoubleUnaryOperator.java</span><br><span class="line">    │   ├─Function.java</span><br><span class="line">    │   ├─IntBinaryOperator.java</span><br><span class="line">    │   ├─IntConsumer.java</span><br><span class="line">    │   ├─IntFunction.java</span><br><span class="line">    │   ├─IntPredicate.java</span><br><span class="line">    │   ├─IntSupplier.java</span><br><span class="line">    │   ├─IntToDoubleFunction.java</span><br><span class="line">    │   ├─IntToLongFunction.java</span><br><span class="line">    │   ├─IntUnaryOperator.java</span><br><span class="line">    │   ├─LongBinaryOperator.java</span><br><span class="line">    │   ├─LongConsumer.java</span><br><span class="line">    │   ├─LongFunction.java</span><br><span class="line">    │   ├─LongPredicate.java</span><br><span class="line">    │   ├─LongSupplier.java</span><br><span class="line">    │   ├─LongToDoubleFunction.java</span><br><span class="line">    │   ├─LongToIntFunction.java</span><br><span class="line">    │   ├─LongUnaryOperator.java</span><br><span class="line">    │   ├─ObjDoubleConsumer.java</span><br><span class="line">    │   ├─ObjIntConsumer.java</span><br><span class="line">    │   ├─ObjLongConsumer.java</span><br><span class="line">    │   ├─package-info.java</span><br><span class="line">    │   ├─Predicate.java</span><br><span class="line">    │   ├─Supplier.java</span><br><span class="line">    │   ├─ToDoubleBiFunction.java</span><br><span class="line">    │   ├─ToDoubleFunction.java</span><br><span class="line">    │   ├─ToIntBiFunction.java</span><br><span class="line">    │   ├─ToIntFunction.java</span><br><span class="line">    │   ├─ToLongBiFunction.java</span><br><span class="line">    │   ├─ToLongFunction.java</span><br><span class="line">    │   └─UnaryOperator.java</span><br><span class="line">    │</span><br><span class="line">    ├─jar</span><br><span class="line">    │   ├─Attributes.java</span><br><span class="line">    │   ├─JarEntry.java</span><br><span class="line">    │   ├─JarException.java</span><br><span class="line">    │   ├─JarFile.java</span><br><span class="line">    │   ├─JarInputStream.java</span><br><span class="line">    │   ├─JarOutputStream.java</span><br><span class="line">    │   ├─JarVerifier.java</span><br><span class="line">    │   ├─JavaUtilJarAccessImpl.java</span><br><span class="line">    │   ├─Manifest.java</span><br><span class="line">    │   └─Pack200.java</span><br><span class="line">    │</span><br><span class="line">    ├─logging</span><br><span class="line">    │   ├─ConsoleHandler.java</span><br><span class="line">    │   ├─ErrorManager.java</span><br><span class="line">    │   ├─FileHandler.java</span><br><span class="line">    │   ├─Filter.java</span><br><span class="line">    │   ├─Formatter.java</span><br><span class="line">    │   ├─Handler.java</span><br><span class="line">    │   ├─Level.java</span><br><span class="line">    │   ├─Logger.java</span><br><span class="line">    │   ├─Logging.java</span><br><span class="line">    │   ├─LoggingMXBean.java</span><br><span class="line">    │   ├─LoggingPermission.java</span><br><span class="line">    │   ├─LoggingProxyImpl.java</span><br><span class="line">    │   ├─LogManager.java</span><br><span class="line">    │   ├─LogRecord.java</span><br><span class="line">    │   ├─MemoryHandler.java</span><br><span class="line">    │   ├─SimpleFormatter.java</span><br><span class="line">    │   ├─SocketHandler.java</span><br><span class="line">    │   ├─StreamHandler.java</span><br><span class="line">    │   └─XMLFormatter.java</span><br><span class="line">    │</span><br><span class="line">    ├─prefs</span><br><span class="line">    │   ├─AbstractPreferences.java</span><br><span class="line">    │   ├─BackingStoreException.java</span><br><span class="line">    │   ├─Base64.java</span><br><span class="line">    │   ├─FileSystemPreferences.java</span><br><span class="line">    │   ├─FileSystemPreferencesFactory.java</span><br><span class="line">    │   ├─InvalidPreferencesFormatException.java</span><br><span class="line">    │   ├─NodeChangeEvent.java</span><br><span class="line">    │   ├─NodeChangeListener.java</span><br><span class="line">    │   ├─PreferenceChangeEvent.java</span><br><span class="line">    │   ├─PreferenceChangeListener.java</span><br><span class="line">    │   ├─Preferences.java</span><br><span class="line">    │   ├─PreferencesFactory.java</span><br><span class="line">    │   └─XmlSupport.java</span><br><span class="line">    │</span><br><span class="line">    ├─regex</span><br><span class="line">    │   ├─ASCII.java</span><br><span class="line">    │   ├─Matcher.java</span><br><span class="line">    │   ├─MatchResult.java</span><br><span class="line">    │   ├─Pattern.java</span><br><span class="line">    │   ├─PatternSyntaxException.java</span><br><span class="line">    │   └─UnicodeProp.java</span><br><span class="line">    │</span><br><span class="line">    ├─spi</span><br><span class="line">    │   ├─CalendarDataProvider.java</span><br><span class="line">    │   ├─CalendarNameProvider.java</span><br><span class="line">    │   ├─CurrencyNameProvider.java</span><br><span class="line">    │   ├─LocaleNameProvider.java</span><br><span class="line">    │   ├─LocaleServiceProvider.java</span><br><span class="line">    │   ├─ResourceBundleControlProvider.java</span><br><span class="line">    │   └─TimeZoneNameProvider.java</span><br><span class="line">    │</span><br><span class="line">    ├─stream</span><br><span class="line">    │   ├─AbstractPipeline.java</span><br><span class="line">    │   ├─AbstractShortCircuitTask.java</span><br><span class="line">    │   ├─AbstractSpinedBuffer.java</span><br><span class="line">    │   ├─AbstractTask.java</span><br><span class="line">    │   ├─BaseStream.java</span><br><span class="line">    │   ├─Collector.java</span><br><span class="line">    │   ├─Collectors.java</span><br><span class="line">    │   ├─DistinctOps.java</span><br><span class="line">    │   ├─DoublePipeline.java</span><br><span class="line">    │   ├─DoubleStream.java</span><br><span class="line">    │   ├─FindOps.java</span><br><span class="line">    │   ├─ForEachOps.java</span><br><span class="line">    │   ├─IntPipeline.java</span><br><span class="line">    │   ├─IntStream.java</span><br><span class="line">    │   ├─LongPipeline.java</span><br><span class="line">    │   ├─LongStream.java</span><br><span class="line">    │   ├─MatchOps.java</span><br><span class="line">    │   ├─Node.java</span><br><span class="line">    │   ├─Nodes.java</span><br><span class="line">    │   ├─package-info.java</span><br><span class="line">    │   ├─PipelineHelper.java</span><br><span class="line">    │   ├─ReduceOps.java</span><br><span class="line">    │   ├─ReferencePipeline.java</span><br><span class="line">    │   ├─Sink.java</span><br><span class="line">    │   ├─SliceOps.java</span><br><span class="line">    │   ├─SortedOps.java</span><br><span class="line">    │   ├─SpinedBuffer.java</span><br><span class="line">    │   ├─Stream.java</span><br><span class="line">    │   ├─StreamOpFlag.java</span><br><span class="line">    │   ├─Streams.java</span><br><span class="line">    │   ├─StreamShape.java</span><br><span class="line">    │   ├─StreamSpliterators.java</span><br><span class="line">    │   ├─StreamSupport.java</span><br><span class="line">    │   ├─TerminalOp.java</span><br><span class="line">    │   ├─TerminalSink.java</span><br><span class="line">    │   └─Tripwire.java</span><br><span class="line">    │</span><br><span class="line">    └─zip</span><br><span class="line">       ├─Adler32.java</span><br><span class="line">       ├─CheckedInputStream.java</span><br><span class="line">       ├─CheckedOutputStream.java</span><br><span class="line">       ├─Checksum.java</span><br><span class="line">       ├─CRC32.java</span><br><span class="line">       ├─DataFormatException.java</span><br><span class="line">       ├─Deflater.java</span><br><span class="line">       ├─DeflaterInputStream.java</span><br><span class="line">       ├─DeflaterOutputStream.java</span><br><span class="line">       ├─GZIPInputStream.java</span><br><span class="line">       ├─GZIPOutputStream.java</span><br><span class="line">       ├─Inflater.java</span><br><span class="line">       ├─InflaterInputStream.java</span><br><span class="line">       ├─InflaterOutputStream.java</span><br><span class="line">       ├─ZipCoder.java</span><br><span class="line">       ├─ZipConstants.java</span><br><span class="line">       ├─ZipConstants64.java</span><br><span class="line">       ├─ZipEntry.java</span><br><span class="line">       ├─ZipError.java</span><br><span class="line">       ├─ZipException.java</span><br><span class="line">       ├─ZipFile.java</span><br><span class="line">       ├─ZipInputStream.java</span><br><span class="line">       ├─ZipOutputStream.java</span><br><span class="line">       ├─ZipUtils.java</span><br><span class="line">       └─ZStreamRef.java</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/blog/tags/包结构/" rel="tag"># 包结构</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/blog/java/README/" rel="prev" title="【java.*】 - README">
+                【java.*】 - README <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/blog/images/avatar.jpg"
+                alt="petterobam" />
+            
+              <p class="site-author-name" itemprop="name">petterobam</p>
+              <p class="site-description motion-element" itemprop="description">一起努力吧 >__<</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/blog/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#包简介"><span class="nav-number">1.</span> <span class="nav-text">包简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细目录"><span class="nav-number">2.</span> <span class="nav-text">详细目录</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018.1 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">petterobam</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/blog/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/blog/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/blog/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/blog/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/blog/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'petterobam',
+            repo: 'study-jdk1.8.0_181',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '02af85d100dbb6f823bf964d2ddc95d3febfa0cc',
+            
+                client_id: '16a13a5d118f18d0cded'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/blog/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
