@@ -80,7 +80,7 @@ theme: next
 deploy:
   type: git
   repo: https://github.com/petterobam/study-jdk1.8.0_181.git
-  branch: master/docs
+  branch: master
 
 search:
   path: search.xml
