@@ -1,3 +1,14 @@
+---
+title: 【java.util.HashMap.java】 - 源码翻译
+description: HashMap 源码阅读翻译
+type: "tags"
+tags:
+  - 源码翻译
+javaname: HashMap.java-zh
+srcpath: java.util
+---
+
+```java
 /*
  * Copyright (c) 1997, 2017, Oracle and/or its affiliates. All rights reserved.
  * ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
@@ -410,20 +421,17 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * necessary. When allocated, length is always a power of two.
      * (We also tolerate length zero in some operations to allow
      * bootstrapping mechanics that are currently not needed.)
-     * 哈希桶
      */
     transient Node<K,V>[] table;
 
     /**
      * Holds cached entrySet(). Note that AbstractMap fields are used
      * for keySet() and values().
-     * 缓存第一次 entrySet()的指针
      */
     transient Set<Map.Entry<K,V>> entrySet;
 
     /**
      * The number of key-value mappings contained in this map.
-     * key-value 映射的数量
      */
     transient int size;
 
@@ -433,13 +441,12 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * the HashMap or otherwise modify its internal structure (e.g.,
      * rehash).  This field is used to make iterators on Collection-views of
      * the HashMap fail-fast.  (See ConcurrentModificationException).
-     * 结构修改的次数
      */
     transient int modCount;
 
     /**
      * The next size value at which to resize (capacity * load factor).
-     * 扩容阀值 ，一次初始化就不能修改了
+     *
      * @serial
      */
     // (The javadoc description is true upon serialization.
@@ -450,7 +457,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
     /**
      * The load factor for the hash table.
-     * 加载因子，一次初始化就不能修改了
+     *
      * @serial
      */
     final float loadFactor;
@@ -2413,3 +2420,4 @@ public class HashMap<K,V> extends AbstractMap<K,V>
     }
 
 }
+```
