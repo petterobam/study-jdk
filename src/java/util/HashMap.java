@@ -1823,6 +1823,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
      * Entry for Tree bins. Extends LinkedHashMap.Entry (which in turn
      * extends Node) so can be used as extension of either regular or
      * linked node.
+     * 树目录的 Entry。扩展于 LinkedHashMap。Entry（反过来扩展 Node）因此即能用于普通的节点又能用于关联的节点
      */
     static final class TreeNode<K,V> extends LinkedHashMap.Entry<K,V> {
         TreeNode<K,V> parent;  // red-black tree links
@@ -1836,6 +1837,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
         /**
          * Returns root of tree containing this node.
+         * 返回包含该节点树的根
          */
         final TreeNode<K,V> root() {
             for (TreeNode<K,V> r = this, p;;) {
@@ -1847,6 +1849,7 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
         /**
          * Ensures that the given root is the first node of its bin.
+         * 确保给定的根节点是该容器的第一个节点
          */
         static <K,V> void moveRootToFront(Node<K,V>[] tab, TreeNode<K,V> root) {
             int n;
@@ -1872,8 +1875,9 @@ public class HashMap<K,V> extends AbstractMap<K,V>
 
         /**
          * Finds the node starting at root p with the given hash and key.
-         * The kc argument caches comparableClassFor(key) upon first use
-         * comparing keys.
+         * 从 P 开始通过给定的 hash 和 key 找到对应节点。
+         * The kc argument caches comparableClassFor(key) upon first use comparing keys.
+         * kc 参数缓存 comparableClassFor(key) ，取决于第一次用于比较的 keys。
          */
         final TreeNode<K,V> find(int h, Object k, Class<?> kc) {
             TreeNode<K,V> p = this;
