@@ -74,7 +74,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 plugins:
   - hexo
-  - hexo-deployer-git
+#  - hexo-deployer-git
   - hexo-generator-archive
   - hexo-generator-baidu-sitemap
   - hexo-generator-category

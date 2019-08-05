@@ -1,0 +1,1 @@
+cd $(dirname $0) && hexo clean && hexo generate && hexo deploy && cd ../docs && git add -f .

@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+    <meta name="description" content="一起努力吧 >__<">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="包结构,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="123456789101112131415java.awt（用户界面和绘图相关）   ├── color （提供颜色空间的类）   ├── datatransfer（提供用于在应用程序之间和之内传输数据的接口和类）   ├── dnd（拖放是在许多图形用户界面系统中发现的直接操纵手势，其提供了在GUI中与表示元素逻辑相关联的两个实体之间传递信息的机制）   │   └── peer（1）   ├─">
+<meta name="keywords" content="包结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【java.awt.*】 - README">
+<meta property="og:url" content="http://www.studyjdk8.cn/java.awt/README/index.html">
+<meta property="og:site_name" content="一起读 JDK 源码">
+<meta property="og:description" content="123456789101112131415java.awt（用户界面和绘图相关）   ├── color （提供颜色空间的类）   ├── datatransfer（提供用于在应用程序之间和之内传输数据的接口和类）   ├── dnd（拖放是在许多图形用户界面系统中发现的直接操纵手势，其提供了在GUI中与表示元素逻辑相关联的两个实体之间传递信息的机制）   │   └── peer（1）   ├─">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-05T08:56:35.811Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【java.awt.*】 - README">
+<meta name="twitter:description" content="123456789101112131415java.awt（用户界面和绘图相关）   ├── color （提供颜色空间的类）   ├── datatransfer（提供用于在应用程序之间和之内传输数据的接口和类）   ├── dnd（拖放是在许多图形用户界面系统中发现的直接操纵手势，其提供了在GUI中与表示元素逻辑相关联的两个实体之间传递信息的机制）   │   └── peer（1）   ├─">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.studyjdk8.cn/java.awt/README/">
+
+
+
+
+
+  <title>【java.awt.*】 - README | 一起读 JDK 源码</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?938168a9a3cda950c39306c563b8cbdb";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">一起读 JDK 源码</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">JDK1.8.0_181源码研读</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br>
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-baidusitemap">
+          <a href="/baidusitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br>
+            
+            百度站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-tags" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.studyjdk8.cn/java.awt/README/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="petterobam">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一起读 JDK 源码">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">【java.awt.*】 - README</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-05T16:56:35+08:00">
+                2019-08-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">java.awt（用户界面和绘图相关）</span><br><span class="line">   ├── <span class="built_in">color</span> （提供颜色空间的类）</span><br><span class="line">   ├── datatransfer（提供用于在应用程序之间和之内传输数据的接口和类）</span><br><span class="line">   ├── dnd（拖放是在许多图形用户界面系统中发现的直接操纵手势，其提供了在GUI中与表示元素逻辑相关联的两个实体之间传递信息的机制）</span><br><span class="line">   │   └── peer（<span class="number">1</span>）</span><br><span class="line">   ├── event（提供用于处理AWT组件触发的不同类型事件的接口和类）</span><br><span class="line">   ├── font（提供与字体相关的类和界面）</span><br><span class="line">   ├── geom（提供Java <span class="number">2</span>D类，用于定义和执行与二维几何体相关的对象的操作）</span><br><span class="line">   ├── im（为输入方法框架提供类和接口）</span><br><span class="line">   │   └── spi（提供可用于开发可与任何Java运行时环境一起使用的输入方法的接口）</span><br><span class="line">   ├── image（提供用于创建和修改图像的类）</span><br><span class="line">   │   └── renderable（提供用于生成与渲染无关的图像的类和接口）</span><br><span class="line">   ├── peer（各组件接口定义）</span><br><span class="line">   ├── <span class="built_in">print</span>（为常规打印API提供类和接口）</span><br><span class="line">   └─ *.java（用户界面和绘图相关基础类）</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="包简介"><a href="#包简介" class="headerlink" title="包简介"></a>包简介</h2><p>包含用于创建用户界面和绘制图形和图像的所有类。</p>
+<h2 id="详细目录"><a href="#详细目录" class="headerlink" title="详细目录"></a>详细目录</h2><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br></pre></td><td class="code"><pre><span class="line">java.awt</span><br><span class="line">    ├── AWTError.java</span><br><span class="line">    ├── AWTEvent.java</span><br><span class="line">    ├── AWTEventMulticaster.java</span><br><span class="line">    ├── AWTException.java</span><br><span class="line">    ├── AWTKeyStroke.java</span><br><span class="line">    ├── AWTPermission.java</span><br><span class="line">    ├── ActiveEvent.java</span><br><span class="line">    ├── Adjustable.java</span><br><span class="line">    ├── AlphaComposite.java</span><br><span class="line">    ├── AttributeValue.java</span><br><span class="line">    ├── BasicStroke.java</span><br><span class="line">    ├── BorderLayout.java</span><br><span class="line">    ├── BufferCapabilities.java</span><br><span class="line">    ├── Button.java</span><br><span class="line">    ├── Canvas.java</span><br><span class="line">    ├── CardLayout.java</span><br><span class="line">    ├── Checkbox.java</span><br><span class="line">    ├── CheckboxGroup.java</span><br><span class="line">    ├── CheckboxMenuItem.java</span><br><span class="line">    ├── Choice.java</span><br><span class="line">    ├── <span class="built_in">Color</span>.java</span><br><span class="line">    ├── ColorPaintContext.java</span><br><span class="line">    ├── Component.java</span><br><span class="line">    ├── ComponentOrientation.java</span><br><span class="line">    ├── Composite.java</span><br><span class="line">    ├── CompositeContext.java</span><br><span class="line">    ├── Conditional.java</span><br><span class="line">    ├── Container.java</span><br><span class="line">    ├── ContainerOrderFocusTraversalPolicy.java</span><br><span class="line">    ├── Cursor.java</span><br><span class="line">    ├── DefaultFocusTraversalPolicy.java</span><br><span class="line">    ├── DefaultKeyboardFocusManager.java</span><br><span class="line">    ├── Desktop.java</span><br><span class="line">    ├── Dialog.java</span><br><span class="line">    ├── Dimension.java</span><br><span class="line">    ├── DisplayMode.java</span><br><span class="line">    ├── Event.java</span><br><span class="line">    ├── EventDispatchThread.java</span><br><span class="line">    ├── EventFilter.java</span><br><span class="line">    ├── EventQueue.java</span><br><span class="line">    ├── FileDialog.java</span><br><span class="line">    ├── FlowLayout.java</span><br><span class="line">    ├── FocusTraversalPolicy.java</span><br><span class="line">    ├── Font.java</span><br><span class="line">    ├── FontFormatException.java</span><br><span class="line">    ├── FontMetrics.java</span><br><span class="line">    ├── Frame.java</span><br><span class="line">    ├── GradientPaint.java</span><br><span class="line">    ├── GradientPaintContext.java</span><br><span class="line">    ├── Graphics.java</span><br><span class="line">    ├── Graphics2D.java</span><br><span class="line">    ├── GraphicsCallback.java</span><br><span class="line">    ├── GraphicsConfigTemplate.java</span><br><span class="line">    ├── GraphicsConfiguration.java</span><br><span class="line">    ├── GraphicsDevice.java</span><br><span class="line">    ├── GraphicsEnvironment.java</span><br><span class="line">    ├── GridBagConstraints.java</span><br><span class="line">    ├── GridBagLayout.java</span><br><span class="line">    ├── GridBagLayoutInfo.java</span><br><span class="line">    ├── GridLayout.java</span><br><span class="line">    ├── HeadlessException.java</span><br><span class="line">    ├── IllegalComponentStateException.java</span><br><span class="line">    ├── Image.java</span><br><span class="line">    ├── ImageCapabilities.java</span><br><span class="line">    ├── Insets.java</span><br><span class="line">    ├── ItemSelectable.java</span><br><span class="line">    ├── JobAttributes.java</span><br><span class="line">    ├── KeyEventDispatcher.java</span><br><span class="line">    ├── KeyEventPostProcessor.java</span><br><span class="line">    ├── KeyboardFocusManager.java</span><br><span class="line">    ├── <span class="built_in">Label</span>.java</span><br><span class="line">    ├── LayoutManager.java</span><br><span class="line">    ├── LayoutManager2.java</span><br><span class="line">    ├── LinearGradientPaint.java</span><br><span class="line">    ├── LinearGradientPaintContext.java</span><br><span class="line">    ├── List.java</span><br><span class="line">    ├── MediaTracker.java</span><br><span class="line">    ├── Menu.java</span><br><span class="line">    ├── MenuBar.java</span><br><span class="line">    ├── MenuComponent.java</span><br><span class="line">    ├── MenuContainer.java</span><br><span class="line">    ├── MenuItem.java</span><br><span class="line">    ├── MenuShortcut.java</span><br><span class="line">    ├── ModalEventFilter.java</span><br><span class="line">    ├── MouseInfo.java</span><br><span class="line">    ├── MultipleGradientPaint.java</span><br><span class="line">    ├── MultipleGradientPaintContext.java</span><br><span class="line">    ├── PageAttributes.java</span><br><span class="line">    ├── Paint.java</span><br><span class="line">    ├── PaintContext.java</span><br><span class="line">    ├── Panel.java</span><br><span class="line">    ├── Point.java</span><br><span class="line">    ├── PointerInfo.java</span><br><span class="line">    ├── Polygon.java</span><br><span class="line">    ├── PopupMenu.java</span><br><span class="line">    ├── PrintGraphics.java</span><br><span class="line">    ├── PrintJob.java</span><br><span class="line">    ├── RadialGradientPaint.java</span><br><span class="line">    ├── RadialGradientPaintContext.java</span><br><span class="line">    ├── Rectangle.java</span><br><span class="line">    ├── RenderingHints.java</span><br><span class="line">    ├── Robot.java</span><br><span class="line">    ├── ScrollPane.java</span><br><span class="line">    ├── ScrollPaneAdjustable.java</span><br><span class="line">    ├── Scrollbar.java</span><br><span class="line">    ├── SecondaryLoop.java</span><br><span class="line">    ├── SentEvent.java</span><br><span class="line">    ├── SequencedEvent.java</span><br><span class="line">    ├── Shape.java</span><br><span class="line">    ├── SplashScreen.java</span><br><span class="line">    ├── Stroke.java</span><br><span class="line">    ├── SystemColor.java</span><br><span class="line">    ├── SystemTray.java</span><br><span class="line">    ├── TextArea.java</span><br><span class="line">    ├── TextComponent.java</span><br><span class="line">    ├── TextField.java</span><br><span class="line">    ├── TexturePaint.java</span><br><span class="line">    ├── TexturePaintContext.java</span><br><span class="line">    ├── Toolkit.java</span><br><span class="line">    ├── Transparency.java</span><br><span class="line">    ├── TrayIcon.java</span><br><span class="line">    ├── WaitDispatchSupport.java</span><br><span class="line">    ├── Window.java</span><br><span class="line">    ├── <span class="built_in">color</span></span><br><span class="line">    │   ├── CMMException.java</span><br><span class="line">    │   ├── ColorSpace.java</span><br><span class="line">    │   ├── ICC_ColorSpace.java</span><br><span class="line">    │   ├── ICC_Profile.java</span><br><span class="line">    │   ├── ICC_ProfileGray.java</span><br><span class="line">    │   ├── ICC_ProfileRGB.java</span><br><span class="line">    │   └── ProfileDataException.java</span><br><span class="line">    ├── datatransfer</span><br><span class="line">    │   ├── Clipboard.java</span><br><span class="line">    │   ├── ClipboardOwner.java</span><br><span class="line">    │   ├── DataFlavor.java</span><br><span class="line">    │   ├── FlavorEvent.java</span><br><span class="line">    │   ├── FlavorListener.java</span><br><span class="line">    │   ├── FlavorMap.java</span><br><span class="line">    │   ├── FlavorTable.java</span><br><span class="line">    │   ├── MimeType.java</span><br><span class="line">    │   ├── MimeTypeParameterList.java</span><br><span class="line">    │   ├── MimeTypeParseException.java</span><br><span class="line">    │   ├── StringSelection.java</span><br><span class="line">    │   ├── SystemFlavorMap.java</span><br><span class="line">    │   ├── Transferable.java</span><br><span class="line">    │   └── UnsupportedFlavorException.java</span><br><span class="line">    ├── dnd</span><br><span class="line">    │   ├── Autoscroll.java</span><br><span class="line">    │   ├── DnDConstants.java</span><br><span class="line">    │   ├── DnDEventMulticaster.java</span><br><span class="line">    │   ├── DragGestureEvent.java</span><br><span class="line">    │   ├── DragGestureListener.java</span><br><span class="line">    │   ├── DragGestureRecognizer.java</span><br><span class="line">    │   ├── DragSource.java</span><br><span class="line">    │   ├── DragSourceAdapter.java</span><br><span class="line">    │   ├── DragSourceContext.java</span><br><span class="line">    │   ├── DragSourceDragEvent.java</span><br><span class="line">    │   ├── DragSourceDropEvent.java</span><br><span class="line">    │   ├── DragSourceEvent.java</span><br><span class="line">    │   ├── DragSourceListener.java</span><br><span class="line">    │   ├── DragSourceMotionListener.java</span><br><span class="line">    │   ├── DropTarget.java</span><br><span class="line">    │   ├── DropTargetAdapter.java</span><br><span class="line">    │   ├── DropTargetContext.java</span><br><span class="line">    │   ├── DropTargetDragEvent.java</span><br><span class="line">    │   ├── DropTargetDropEvent.java</span><br><span class="line">    │   ├── DropTargetEvent.java</span><br><span class="line">    │   ├── DropTargetListener.java</span><br><span class="line">    │   ├── InvalidDnDOperationException.java</span><br><span class="line">    │   ├── MouseDragGestureRecognizer.java</span><br><span class="line">    │   ├── SerializationTester.java</span><br><span class="line">    │   └── peer</span><br><span class="line">    │       ├── DragSourceContextPeer.java</span><br><span class="line">    │       ├── DropTargetContextPeer.java</span><br><span class="line">    │       └── DropTargetPeer.java</span><br><span class="line">    ├── event</span><br><span class="line">    │   ├── AWTEventListener.java</span><br><span class="line">    │   ├── AWTEventListenerProxy.java</span><br><span class="line">    │   ├── ActionEvent.java</span><br><span class="line">    │   ├── ActionListener.java</span><br><span class="line">    │   ├── AdjustmentEvent.java</span><br><span class="line">    │   ├── AdjustmentListener.java</span><br><span class="line">    │   ├── ComponentAdapter.java</span><br><span class="line">    │   ├── ComponentEvent.java</span><br><span class="line">    │   ├── ComponentListener.java</span><br><span class="line">    │   ├── ContainerAdapter.java</span><br><span class="line">    │   ├── ContainerEvent.java</span><br><span class="line">    │   ├── ContainerListener.java</span><br><span class="line">    │   ├── FocusAdapter.java</span><br><span class="line">    │   ├── FocusEvent.java</span><br><span class="line">    │   ├── FocusListener.java</span><br><span class="line">    │   ├── HierarchyBoundsAdapter.java</span><br><span class="line">    │   ├── HierarchyBoundsListener.java</span><br><span class="line">    │   ├── HierarchyEvent.java</span><br><span class="line">    │   ├── HierarchyListener.java</span><br><span class="line">    │   ├── InputEvent.java</span><br><span class="line">    │   ├── InputMethodEvent.java</span><br><span class="line">    │   ├── InputMethodListener.java</span><br><span class="line">    │   ├── InvocationEvent.java</span><br><span class="line">    │   ├── ItemEvent.java</span><br><span class="line">    │   ├── ItemListener.java</span><br><span class="line">    │   ├── KeyAdapter.java</span><br><span class="line">    │   ├── KeyEvent.java</span><br><span class="line">    │   ├── KeyListener.java</span><br><span class="line">    │   ├── MouseAdapter.java</span><br><span class="line">    │   ├── MouseEvent.java</span><br><span class="line">    │   ├── MouseListener.java</span><br><span class="line">    │   ├── MouseMotionAdapter.java</span><br><span class="line">    │   ├── MouseMotionListener.java</span><br><span class="line">    │   ├── MouseWheelEvent.java</span><br><span class="line">    │   ├── MouseWheelListener.java</span><br><span class="line">    │   ├── NativeLibLoader.java</span><br><span class="line">    │   ├── PaintEvent.java</span><br><span class="line">    │   ├── TextEvent.java</span><br><span class="line">    │   ├── TextListener.java</span><br><span class="line">    │   ├── WindowAdapter.java</span><br><span class="line">    │   ├── WindowEvent.java</span><br><span class="line">    │   ├── WindowFocusListener.java</span><br><span class="line">    │   ├── WindowListener.java</span><br><span class="line">    │   └── WindowStateListener.java</span><br><span class="line">    ├── font</span><br><span class="line">    │   ├── CharArrayIterator.java</span><br><span class="line">    │   ├── FontRenderContext.java</span><br><span class="line">    │   ├── GlyphJustificationInfo.java</span><br><span class="line">    │   ├── GlyphMetrics.java</span><br><span class="line">    │   ├── GlyphVector.java</span><br><span class="line">    │   ├── GraphicAttribute.java</span><br><span class="line">    │   ├── ImageGraphicAttribute.java</span><br><span class="line">    │   ├── LayoutPath.java</span><br><span class="line">    │   ├── LineBreakMeasurer.java</span><br><span class="line">    │   ├── LineMetrics.java</span><br><span class="line">    │   ├── MultipleMaster.java</span><br><span class="line">    │   ├── NumericShaper.java</span><br><span class="line">    │   ├── OpenType.java</span><br><span class="line">    │   ├── ShapeGraphicAttribute.java</span><br><span class="line">    │   ├── StyledParagraph.java</span><br><span class="line">    │   ├── TextAttribute.java</span><br><span class="line">    │   ├── TextHitInfo.java</span><br><span class="line">    │   ├── TextJustifier.java</span><br><span class="line">    │   ├── TextLayout.java</span><br><span class="line">    │   ├── TextLine.java</span><br><span class="line">    │   ├── TextMeasurer.java</span><br><span class="line">    │   └── TransformAttribute.java</span><br><span class="line">    ├── geom</span><br><span class="line">    │   ├── AffineTransform.java</span><br><span class="line">    │   ├── Arc2D.java</span><br><span class="line">    │   ├── ArcIterator.java</span><br><span class="line">    │   ├── Area.java</span><br><span class="line">    │   ├── CubicCurve2D.java</span><br><span class="line">    │   ├── CubicIterator.java</span><br><span class="line">    │   ├── Dimension2D.java</span><br><span class="line">    │   ├── Ellipse2D.java</span><br><span class="line">    │   ├── EllipseIterator.java</span><br><span class="line">    │   ├── FlatteningPathIterator.java</span><br><span class="line">    │   ├── GeneralPath.java</span><br><span class="line">    │   ├── IllegalPathStateException.java</span><br><span class="line">    │   ├── Line2D.java</span><br><span class="line">    │   ├── LineIterator.java</span><br><span class="line">    │   ├── NoninvertibleTransformException.java</span><br><span class="line">    │   ├── Path2D.java</span><br><span class="line">    │   ├── PathIterator.java</span><br><span class="line">    │   ├── Point2D.java</span><br><span class="line">    │   ├── QuadCurve2D.java</span><br><span class="line">    │   ├── QuadIterator.java</span><br><span class="line">    │   ├── RectIterator.java</span><br><span class="line">    │   ├── Rectangle2D.java</span><br><span class="line">    │   ├── RectangularShape.java</span><br><span class="line">    │   ├── RoundRectIterator.java</span><br><span class="line">    │   └── RoundRectangle2D.java</span><br><span class="line">    ├── im</span><br><span class="line">    │   ├── InputContext.java</span><br><span class="line">    │   ├── InputMethodHighlight.java</span><br><span class="line">    │   ├── InputMethodRequests.java</span><br><span class="line">    │   ├── InputSubset.java</span><br><span class="line">    │   └── spi</span><br><span class="line">    │       ├── InputMethod.java</span><br><span class="line">    │       ├── InputMethodContext.java</span><br><span class="line">    │       └── InputMethodDescriptor.java</span><br><span class="line">    ├── image</span><br><span class="line">    │   ├── AffineTransformOp.java</span><br><span class="line">    │   ├── AreaAveragingScaleFilter.java</span><br><span class="line">    │   ├── BandCombineOp.java</span><br><span class="line">    │   ├── BandedSampleModel.java</span><br><span class="line">    │   ├── BufferStrategy.java</span><br><span class="line">    │   ├── BufferedImage.java</span><br><span class="line">    │   ├── BufferedImageFilter.java</span><br><span class="line">    │   ├── BufferedImageOp.java</span><br><span class="line">    │   ├── ByteLookupTable.java</span><br><span class="line">    │   ├── ColorConvertOp.java</span><br><span class="line">    │   ├── ColorModel.java</span><br><span class="line">    │   ├── ComponentColorModel.java</span><br><span class="line">    │   ├── ComponentSampleModel.java</span><br><span class="line">    │   ├── ConvolveOp.java</span><br><span class="line">    │   ├── CropImageFilter.java</span><br><span class="line">    │   ├── DataBuffer.java</span><br><span class="line">    │   ├── DataBufferByte.java</span><br><span class="line">    │   ├── DataBufferDouble.java</span><br><span class="line">    │   ├── DataBufferFloat.java</span><br><span class="line">    │   ├── DataBufferInt.java</span><br><span class="line">    │   ├── DataBufferShort.java</span><br><span class="line">    │   ├── DataBufferUShort.java</span><br><span class="line">    │   ├── DirectColorModel.java</span><br><span class="line">    │   ├── FilteredImageSource.java</span><br><span class="line">    │   ├── ImageConsumer.java</span><br><span class="line">    │   ├── ImageFilter.java</span><br><span class="line">    │   ├── ImageObserver.java</span><br><span class="line">    │   ├── ImageProducer.java</span><br><span class="line">    │   ├── ImagingOpException.java</span><br><span class="line">    │   ├── IndexColorModel.java</span><br><span class="line">    │   ├── Kernel.java</span><br><span class="line">    │   ├── LookupOp.java</span><br><span class="line">    │   ├── LookupTable.java</span><br><span class="line">    │   ├── MemoryImageSource.java</span><br><span class="line">    │   ├── MultiPixelPackedSampleModel.java</span><br><span class="line">    │   ├── PackedColorModel.java</span><br><span class="line">    │   ├── PixelGrabber.java</span><br><span class="line">    │   ├── PixelInterleavedSampleModel.java</span><br><span class="line">    │   ├── RGBImageFilter.java</span><br><span class="line">    │   ├── Raster.java</span><br><span class="line">    │   ├── RasterFormatException.java</span><br><span class="line">    │   ├── RasterOp.java</span><br><span class="line">    │   ├── RenderedImage.java</span><br><span class="line">    │   ├── ReplicateScaleFilter.java</span><br><span class="line">    │   ├── RescaleOp.java</span><br><span class="line">    │   ├── SampleModel.java</span><br><span class="line">    │   ├── ShortLookupTable.java</span><br><span class="line">    │   ├── SinglePixelPackedSampleModel.java</span><br><span class="line">    │   ├── TileObserver.java</span><br><span class="line">    │   ├── VolatileImage.java</span><br><span class="line">    │   ├── WritableRaster.java</span><br><span class="line">    │   ├── WritableRenderedImage.java</span><br><span class="line">    │   └── renderable</span><br><span class="line">    │       ├── ContextualRenderedImageFactory.java</span><br><span class="line">    │       ├── ParameterBlock.java</span><br><span class="line">    │       ├── RenderContext.java</span><br><span class="line">    │       ├── RenderableImage.java</span><br><span class="line">    │       ├── RenderableImageOp.java</span><br><span class="line">    │       ├── RenderableImageProducer.java</span><br><span class="line">    │       └── RenderedImageFactory.java</span><br><span class="line">    ├── peer</span><br><span class="line">    │   ├── ButtonPeer.java</span><br><span class="line">    │   ├── CanvasPeer.java</span><br><span class="line">    │   ├── CheckboxMenuItemPeer.java</span><br><span class="line">    │   ├── CheckboxPeer.java</span><br><span class="line">    │   ├── ChoicePeer.java</span><br><span class="line">    │   ├── ComponentPeer.java</span><br><span class="line">    │   ├── ContainerPeer.java</span><br><span class="line">    │   ├── DesktopPeer.java</span><br><span class="line">    │   ├── DialogPeer.java</span><br><span class="line">    │   ├── FileDialogPeer.java</span><br><span class="line">    │   ├── FontPeer.java</span><br><span class="line">    │   ├── FramePeer.java</span><br><span class="line">    │   ├── KeyboardFocusManagerPeer.java</span><br><span class="line">    │   ├── LabelPeer.java</span><br><span class="line">    │   ├── LightweightPeer.java</span><br><span class="line">    │   ├── ListPeer.java</span><br><span class="line">    │   ├── MenuBarPeer.java</span><br><span class="line">    │   ├── MenuComponentPeer.java</span><br><span class="line">    │   ├── MenuItemPeer.java</span><br><span class="line">    │   ├── MenuPeer.java</span><br><span class="line">    │   ├── MouseInfoPeer.java</span><br><span class="line">    │   ├── PanelPeer.java</span><br><span class="line">    │   ├── PopupMenuPeer.java</span><br><span class="line">    │   ├── RobotPeer.java</span><br><span class="line">    │   ├── ScrollPanePeer.java</span><br><span class="line">    │   ├── ScrollbarPeer.java</span><br><span class="line">    │   ├── SystemTrayPeer.java</span><br><span class="line">    │   ├── TextAreaPeer.java</span><br><span class="line">    │   ├── TextComponentPeer.java</span><br><span class="line">    │   ├── TextFieldPeer.java</span><br><span class="line">    │   ├── TrayIconPeer.java</span><br><span class="line">    │   └── WindowPeer.java</span><br><span class="line">    └── <span class="built_in">print</span></span><br><span class="line">        ├── Book.java</span><br><span class="line">        ├── PageFormat.java</span><br><span class="line">        ├── Pageable.java</span><br><span class="line">        ├── Paper.java</span><br><span class="line">        ├── Printable.java</span><br><span class="line">        ├── PrinterAbortException.java</span><br><span class="line">        ├── PrinterException.java</span><br><span class="line">        ├── PrinterGraphics.java</span><br><span class="line">        ├── PrinterIOException.java</span><br><span class="line">        └── PrinterJob.java</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/包结构/" rel="tag"># 包结构</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/java.applet/README/" rel="next" title="【java.applet.*】 - README">
+                <i class="fa fa-chevron-left"></i> 【java.applet.*】 - README
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="petterobam">
+            
+              <p class="site-author-name" itemprop="name">petterobam</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/petterobam" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1460300366@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#包简介"><span class="nav-number">1.</span> <span class="nav-text">包简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#详细目录"><span class="nav-number">2.</span> <span class="nav-text">详细目录</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">petterobam</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="/js/src/gitments/default.css">
+        <script src="/js/src/gitments/gitment-by.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitment({
+            id: window.location.pathname,
+            owner: 'petterobam',
+            repo: 'study-jdk',
+            
+            oauth: {
+            
+            
+                client_secret: '99b76ed0a77ff5ac70683a1a6e0f2b62e099e811',
+            
+                client_id: 'e2534de37cd97653f438'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
