@@ -3243,6 +3243,7 @@ function ajaxFactory(method) {
     }
 
     //设置自定义的 header
+    //noinspection JSAnnotator
     for(let header in headers){
         req.setRequestHeader([header], headers[header]);
     }

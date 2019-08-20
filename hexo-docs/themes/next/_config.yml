@@ -402,7 +402,7 @@ valine:
 # Introduction: https://imsun.net/posts/gitment-introduction/
 # You can get your Github ID from https://api.github.com/users/<Github username>
 gitment:
-  enable: true
+  enable: false
   mint: false # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway
   count: true # Show comments count in post meta area
   lazy: false # Comments lazy loading with a button
@@ -414,6 +414,12 @@ gitment:
   client_secret: 99b76ed0a77ff5ac70683a1a6e0f2b62e099e811 # EITHER this or proxy_gateway, Github access secret token for the Gitment
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
   redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
+
+utterances:
+  enable: true
+  repo: petterobam/study-jdk # owner/repo
+  issue_term: pathname # pathname, url, title, og:title [ISSUE NUMBER] or [SPECIFIC TERM]
+  theme: # github-light or github-dark
 
 # Baidu Share
 # Available value:
