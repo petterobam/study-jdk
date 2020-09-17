@@ -14,6 +14,13 @@ public class SyntaxSugar {
         // 自动拆装箱
         Integer i = 2;
         int t = i;
+        long l = 5L;
+        Character c = 'a';
+        Character c2 = 65;
+        char c3 = 65;
+        char b = c;
+        boolean bool = c == 65;
+        boolean bool2 = c == l;
         int g = new Integer("3");
         i++;
         // 数字加下划线自动去下划线
